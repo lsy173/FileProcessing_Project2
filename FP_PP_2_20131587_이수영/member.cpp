@@ -12,6 +12,8 @@ Member::Member(const Member &s) {
 	setPhoneNumber(s.PhoneNumber);
 	setAddress(s.Address);
 	setMileage(s.Mileage);
+	// Project2 added.
+	setLevel();
 }
 Member& Member::operator=(const Member &s) {
 	setID(s.ID);
@@ -20,6 +22,8 @@ Member& Member::operator=(const Member &s) {
 	setPhoneNumber(s.PhoneNumber);
 	setAddress(s.Address);
 	setMileage(s.Mileage);
+	// Project2 added.
+	setLevel();
 	return *this;
 }
 
@@ -34,6 +38,8 @@ bool Member::operator!=(const Member &s) {
 bool Member::Pack(IOBuffer &Buffer) const {
 	int numBytes;
 	string sMileage(Mileage, LEN_MIL);
+	// Project 2 added.
+	string sLevel(Level, LEN_LEVEL);
 
 	Buffer.Clear();
 	numBytes = Buffer.Pack(ID.c_str()); if (numBytes == -1) return false;
@@ -42,6 +48,8 @@ bool Member::Pack(IOBuffer &Buffer) const {
 	numBytes = Buffer.Pack(PhoneNumber.c_str()); if (numBytes == -1) return false;
 	numBytes = Buffer.Pack(Address.c_str()); if (numBytes == -1) return false;
 	numBytes = Buffer.Pack(sMileage.c_str()); if (numBytes == -1) return false;
+	// Project2 added.
+	numBytes = Buffer.Pack(sLevel.c_str()); if (numBytes == -1) return false;
 	return true;
 }
 
@@ -60,6 +68,8 @@ bool Member::Unpack(IOBuffer &Buffer) {
 	numBytes = Buffer.Unpack(buf); if (numBytes == -1) return false;
 	Address = buf;
 	numBytes = Buffer.Unpack(Mileage, LEN_MIL); if (numBytes == -1) return false;
+	// Project2 added.
+	numBytes = Buffer.Unpack(Level, 2); if (numBytes == -1) return false;
 
 	return true;
 }
@@ -91,6 +101,8 @@ istream & operator >> (istream & is, Member &s) {
 	s.setAddress(token.data());
 	getline(iss, token, '|');
 	s.setMileage(token.data());
+	// Project2 added.
+	s.setLevel();
 
 	return is;
 
@@ -105,6 +117,14 @@ ostream & operator << (ostream &os, Member &s) {
 	os << "Phone_Number : " << s.PhoneNumber << endl;
 	os << "Address : " << s.Address << endl;
 	os << "Mileage : " << Mileage << endl;
+	// Project2 added.
+	os << "Level : " << s.Level << endl;
 
 	return os;
+}
+
+// Project 2 added.
+char* Member::Key(void) {
+	key.assign(ID.c_str(), strlen(ID.c_str()));
+	return (char*)(key.c_str());
 }

@@ -4,7 +4,8 @@
 
 #define LEN_MIL 11
 #define STDMAXBUF 256
-
+// Project2 added.
+#define LEN_LEVEL 2
 using namespace std;
 
 class Member {
@@ -16,6 +17,9 @@ private:
 	string	PhoneNumber;
 	string Address;
 	char Mileage[11];	
+	// Project2 added.
+	char Level[2];
+	string key;
 
 public:
 	Member();
@@ -35,6 +39,12 @@ public:
 	void setPhoneNumber(const string newPhoneNumber) { PhoneNumber = newPhoneNumber; }
 	void setAddress(const string newAddress) { Address = newAddress; }
 	void setMileage(const char * newMileage) { memcpy(Mileage, newMileage, LEN_MIL); }
+	void setLevel(void) {
+		if (getID().compare("admin") == 0)
+			memcpy(Level, "1", 2);
+		else
+			memcpy(Level, "9", 2);
+	}
 
 	string getID() {
 		return ID;
@@ -57,10 +67,16 @@ public:
 	int getLength() {
 		return ID.size() + Password.size() + Name.size() + PhoneNumber.size() + Address.size() + strlen(Mileage);
 	}
+	// Project2 added.
+	char* getLevel() {
+		return Level;
+	}
+
 
 	bool Pack(IOBuffer &Buffer) const;
 	bool Unpack(IOBuffer &);
-
+	// Project2 added.
+	char* Key();
 };
 
 
