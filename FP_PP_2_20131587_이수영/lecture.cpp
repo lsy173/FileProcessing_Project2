@@ -132,3 +132,9 @@ ostream & operator << (ostream &os, Lecture &s) {
 	os << "TextBook: " << s.TextBook << endl;
 	return os;
 }
+
+// Project2 added.
+char* Lecture::Key(void) {
+	key.assign(LectureID, 12);
+	return (char*)(key.c_str());
+}

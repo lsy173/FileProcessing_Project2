@@ -22,6 +22,8 @@ private: // fields.
 	int DueDate;
 	string NameOfTeacher;
 	string TextBook;
+	// Project2 added.
+	string key;
 
 public: // operations.
 	Lecture();
@@ -74,6 +76,9 @@ public: // operations.
 
 	bool Pack(IOBuffer &Buffer) const;
 	bool Unpack(IOBuffer &);
+
+	// Project2 added.
+	char * Key();
 };
 
 istream & operator >> (istream &is, Lecture &s);
