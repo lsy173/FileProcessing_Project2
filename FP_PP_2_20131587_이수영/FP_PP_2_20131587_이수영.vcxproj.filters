@@ -42,6 +42,18 @@
     <ClCompile Include="varlen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="textind.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fixlen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fixfld.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="tindbuffer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="buffile.h">
@@ -69,6 +81,21 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="varlen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="textind.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="fixlen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="fixfld.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tindbuffer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="indfile.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
