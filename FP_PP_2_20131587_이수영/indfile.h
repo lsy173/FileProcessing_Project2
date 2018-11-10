@@ -18,7 +18,7 @@ public:
 	int Update(char * oldKey, RecType & record);
 	int Delete(RecType & record);
 	int Create(char * name, int mode = ios::in | ios::out);
-	int Open(char * name, int mode = ios::in | ios::out);
+	int Open(const char * name, int mode = ios::in | ios::out);
 	int Close();
 	TextIndexedFile(IOBuffer & buffer,
 		int keySize, int maxKeys = 100);
@@ -156,7 +156,7 @@ int TextIndexedFile<RecType>::Create(char * fileName, int mode)
 	return 1;
 }
 template <class RecType>
-int TextIndexedFile<RecType>::Open(char * fileName, int mode)
+int TextIndexedFile<RecType>::Open(const char * fileName, int mode)
 // open data and index file and read index file
 {
 	int result;

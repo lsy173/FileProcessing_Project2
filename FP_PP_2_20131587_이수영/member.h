@@ -65,7 +65,7 @@ public:
 		return Mileage;
 	}
 	int getLength() {
-		return ID.size() + Password.size() + Name.size() + PhoneNumber.size() + Address.size() + strlen(Mileage);
+		return ID.size() + Password.size() + Name.size() + PhoneNumber.size() + Address.size() + strlen(Mileage) + strlen(Level);
 	}
 	// Project2 added.
 	char* getLevel() {
