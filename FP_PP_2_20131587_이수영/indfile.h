@@ -29,7 +29,7 @@ protected:
 	TextIndexBuffer IndexBuffer;
 	RecordFile<RecType> DataFile;
 	char * FileName; // base file name for file
-	int SetFileName(char * fileName,
+	int SetFileName(const char * fileName,
 		char *& dataFileName, char *& indexFileName);
 };
 
@@ -114,7 +114,7 @@ int TextIndexedFile<RecType>::Delete(RecType & record)
 
 
 template <class RecType>
-int TextIndexedFile<RecType>::SetFileName(char * fileName,
+int TextIndexedFile<RecType>::SetFileName(const char * fileName,
 	char *& dataFileName, char *& indexFileName)
 	// generate names for the data file and the index file
 {

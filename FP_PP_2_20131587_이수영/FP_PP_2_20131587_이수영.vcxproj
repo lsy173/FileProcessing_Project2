@@ -84,7 +84,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
@@ -187,7 +187,9 @@
     <ClInclude Include="buffile.h" />
     <ClInclude Include="delim.h" />
     <ClInclude Include="deltext.h" />
-    <ClInclude Include="fixfld.h" />
+    <ClInclude Include="fixfld.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="fixlen.h" />
     <ClInclude Include="indfile.h" />
     <ClInclude Include="iobuffer.h" />
