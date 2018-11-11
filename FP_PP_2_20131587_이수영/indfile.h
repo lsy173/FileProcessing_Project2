@@ -17,7 +17,7 @@ public:
 	int Append(RecType & record);
 	int Update(char * oldKey, RecType & record);
 	int Delete(RecType & record);
-	int Create(char * name, int mode = ios::in | ios::out);
+	int Create(const char * name, int mode = ios::in | ios::out);
 	int Open(const char * name, int mode = ios::in | ios::out);
 	int Close();
 	TextIndexedFile(IOBuffer & buffer,
@@ -132,7 +132,7 @@ int TextIndexedFile<RecType>::SetFileName(const char * fileName,
 }
 
 template <class RecType>
-int TextIndexedFile<RecType>::Create(char * fileName, int mode)
+int TextIndexedFile<RecType>::Create(const char * fileName, int mode)
 // use fileName.dat and fileName.ind
 {
 	int result;
