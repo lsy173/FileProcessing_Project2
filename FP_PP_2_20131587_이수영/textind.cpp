@@ -52,6 +52,10 @@ int TextIndex::Search(const char* key) const {
 		else if (strcmp(Keys[middle], key) < 0) {
 			low = middle + 1;
 		}
+		else {
+			index = middle;
+			break;
+		}
 	}
 	if (index < 0) return index;
 	return RecAddrs[index];
